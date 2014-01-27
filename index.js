@@ -6,8 +6,6 @@ var ms = require('ms');
 var cp = require('child_process');
 var dns = require('dns');
 var fs = require('fs');
-var http = require('http');
-var https = require('https');
 
 module.exports = rnode;
 function rnode(min, max) {
@@ -27,8 +25,6 @@ function rnode(min, max) {
         || key.match(/^(un)?watch/)
         ))
       fs[key] = randomizeAsyncFunction(fs[key], min, max, 'fs.' + key);
-  http.request = randomizeAsyncFunction(http.request, min, max, 'http.request');
-  https.request = randomizeAsyncFunction(https.request, min, max, 'https.request');
 }
 
 function randomizeAsyncFunction(fn, min, max, name) {
