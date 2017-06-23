@@ -1,7 +1,5 @@
 # rnode
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/ForbesLindesay/rnode.svg)](https://greenkeeper.io/)
-
 Make node become really random, useful when checking you have no race conditions
 
 [![Build Status](https://img.shields.io/travis/ForbesLindesay/rnode/master.svg)](https://travis-ci.org/ForbesLindesay/rnode)
