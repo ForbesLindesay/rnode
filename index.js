@@ -15,10 +15,10 @@ function rnode(min, max) {
   cp.exec = randomizeAsyncFunction(cp.exec, min, max, 'cp.exec');
   cp.execFile = randomizeAsyncFunction(cp.execFile, min, max, 'cp.execFile');
   for (var key in dns)
-    if (!(typeof fs[key] != 'function'))
+    if (!(typeof dns[key] !== 'function'))
       dns[key] = randomizeAsyncFunction(dns[key], min, max, 'dns.' + key);
   for (var key in fs)
-    if (!(typeof fs[key] != 'function'
+    if (!(typeof fs[key] !== 'function'
         || key.match(/Sync$/)
         || key.match(/^[A-Z]/)
         || key.match(/^create/)
@@ -43,7 +43,6 @@ function randomizeCallback(fn, min, max, name) {
     var self = this;
     var args = arguments;
     var timeout = (Math.random() * (max - min)) + min;
-    // console.dir('setTimeout: ' + name);
     setTimeout(function () {
       fn.apply(self, args);
     }, timeout);
@@ -51,7 +50,6 @@ function randomizeCallback(fn, min, max, name) {
   function delay() {
     return (Math.random() * (max - min)) + min;
   }
-  return Function('fn, delay', 'return function (' + args.join(', ') + ') { var args = arguments; setTimeout(function () {fn.apply(this, args);}, delay()); }')(fn, delay);
 }
 
 function matchLength(fnIn, fnOut) {
