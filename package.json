@@ -1,6 +1,6 @@
 {
   "name": "rnode",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "Make node become really random, useful when checking you have no race conditions",
   "keywords": [],
   "dependencies": {
